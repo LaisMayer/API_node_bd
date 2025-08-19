@@ -11,14 +11,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.use(express.static(path.join(_dirname, 'public')));
+app.use('/api', dataRoutes);
 
-app.use('/', dataRoutes);
-
-app.get('/', (res, req)=>{
-    res.sendFile(path.join(_dirname, 'public', 'index.html'))
+app.get('/', (req, res) => {
+  res.sendFile(path.join(_dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {
-    console.log("Servidor rodando na porta 3000");
+  console.log(`Servidor rodando na porta ${PORT}`);
 });

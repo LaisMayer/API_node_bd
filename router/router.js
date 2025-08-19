@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { getAllDados } from "../crontollers/controller.js";
+import { getAllDados, createDado, updateDado, deleteDado } from "../controller/controller.js";
 
 const rota = Router();
 
-// rota para retornar dados
-rota.get('/', getAllDados);
+rota.get('/dados', getAllDados);     
+rota.post('/dados', createDado);     
+rota.put('/dados/:id', updateDado);  
+rota.delete('/dados/:id', deleteDado); 
 
 export default rota;
